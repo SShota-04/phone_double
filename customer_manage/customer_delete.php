@@ -6,6 +6,7 @@ $id = $_GET['id'];
 // DB接続
 $pdo = connect_to_db();
 
+
 $sql = 'DELETE FROM cu_table WHERE id=:id';
 
 $stmt = $pdo->prepare($sql);

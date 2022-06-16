@@ -24,12 +24,8 @@ foreach ($result as $record) {
       <td>{$record["cu_number"]}</td>
       <td>{$record["cu_memo"]}</td>
       <td>{$record["cu_other"]}</td>
-      <td>
-        <a href='customer_edit.php?id={$record["id"]}'>編集</a>
-      </td>
-      <td>
-        <a href='customer_delete.php?id={$record["id"]}'>削除</a>
-      </td>
+      <td><a href='customer_edit.php?id={$record["id"]}'>編集</a></td>
+      <td><a href='customer_delete.php?id={$record["id"]}'>削除</a></td>
     </tr>
   ";
 }
