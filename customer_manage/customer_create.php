@@ -1,6 +1,8 @@
 <?php
 
+session_start();
 include('functions.php');
+check_session_id();
 
 if (
   !isset($_POST['cu_name']) || $_POST['cu_name'] == '' ||

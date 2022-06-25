@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 include('functions.php');
+check_session_id();
 
 $pdo = connect_to_db();
 $sql = 'SELECT * FROM cu_table ORDER BY cu_name ASC';

@@ -3,12 +3,14 @@ include('functions.php');
 
 if (
   !isset($_POST['username']) || $_POST['username'] == '' ||
+  !isset($_POST['usermail']) || $_POST['usermail'] == '' ||
   !isset($_POST['password']) || $_POST['password'] == ''
 ) {
   exit('paramError');
 }
 
 $username = $_POST["username"];
+$usermail = $_POST["usermail"];
 $password = $_POST["password"];
 
 $pdo = connect_to_db();
@@ -27,14 +29,15 @@ try {
 
 if ($stmt->fetchColumn() > 0) {
   echo '<p>すでに登録されているユーザです．</p>';
-  echo '<a href="todo_login.php">login</a>';
+  echo '<a href="login.php">login</a>';
   exit();
 }
 
-$sql = 'INSERT INTO users_table(id, username, password, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :username, :password, 0, 0, now(), now())';
+$sql = 'INSERT INTO users_table(id, username, usermail, password, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :username, :usermail, :password, 0, 0, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+$stmt->bindValue(':usermail', $usermail, PDO::PARAM_STR);
 $stmt->bindValue(':password', $password, PDO::PARAM_STR);
 
 try {
@@ -44,5 +47,5 @@ try {
   exit();
 }
 
-header("Location:todo_login.php");
+header("Location:login.php");
 exit();

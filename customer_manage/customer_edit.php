@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 include('functions.php');
+check_session_id();
 
 $id = $_GET['id'];
 
@@ -27,13 +28,13 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DB連携型todoリスト（編集画面）</title>
+  <title>顧客管理・編集画面</title>
 </head>
 
 <body>
   <form action="customer_update.php" method="POST">
     <fieldset>
-      <legend>DB連携型todoリスト（編集画面）</legend>
+      <legend>顧客管理・編集画面</legend>
       <a href="customer_list.php">一覧画面</a>
       <div>
       <p><label for="namae">お名前</label></p>

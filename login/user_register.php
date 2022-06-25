@@ -8,14 +8,20 @@
 </head>
 
 <body>
-  <form action="todo_register_act.php" method="POST">
+  <form action="user_register_act.php" method="POST">
     <fieldset>
-      <legend>todoリストユーザ登録画面</legend>
+      <legend>ユーザ登録画面</legend>
       <div>
-        username: <input type="text" name="username">
+      <p><label for="username">お名前</label></p>
+	    <input type="text" id="username" name="username">
       </div>
       <div>
-        password: <input type="text" name="password">
+      <p><label for="usermail">メールアドレス</label></p>
+	    <input type="email" id="usermail" name="usermail" placeholder="sample@sample.com">
+      </div>
+      <div>
+      <p><label for="pass">パスワード</label></p>
+	    <input type="email" id="pass" name="password">
       </div>
       <div>
         <button>Register</button>
